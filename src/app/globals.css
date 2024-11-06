@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #1B1E4C;
+  --foreground: #ffffff;
+  --primary: #0797F4;
+  --links: #8689AC;
+  --shade: #656893;
+  --dark: #313349;
 }
 
 body {
@@ -20,8 +17,31 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.wrapper {
+  min-height: 100vh;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer components {
+  .input {
+    @apply transition border-2 border-primary rounded-[10px] p-[15px] bg-transparent
+  }
+  .input[type=submit] {
+    @apply hover:bg-shade;
+  }
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
 }
