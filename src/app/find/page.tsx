@@ -7,7 +7,6 @@ import Image from "next/image";
 import findfiller from "@/app/static/findfiller.png"
 import { FormEvent, useRef, useState } from "react";
 import { getRequest } from "@/app/crud";
-import { read } from "node:fs";
 import Form from "@/app/blocks/Form";
 import { IRequest } from "@/app/db";
 import { entries, prices } from "@/app/consts";

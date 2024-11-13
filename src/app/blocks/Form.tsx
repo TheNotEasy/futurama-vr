@@ -6,7 +6,7 @@ import { createRequest, updateRequest } from "@/app/crud";
 
 import { robotoRegular } from "@/app/fonts";
 
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type FormUpdateProps = {
   isUpdate?: boolean
@@ -18,7 +18,7 @@ type FormProps = {
   price: string
   type: number
   fromAdmin?: boolean
-  values?: Record<string, any>
+  values?: Record<string, string | number | readonly string[] | undefined>
 } & FormUpdateProps
 
 const pattern = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/
@@ -39,9 +39,9 @@ export default function Form({title, price, isUpdate, id, type, fromAdmin, value
       event.stopPropagation();
       return false;
     }
-    const object: Record<string, any> = {};
+    const object: Record<string, string | number | readonly string[] | undefined> = {};
     formData.forEach(function(value, key){
-        object[key] = value;
+        object[key] = value as string | number | readonly string[] | undefined;
     });
     if (isUpdate) {
       updateRequest(object, id as string)

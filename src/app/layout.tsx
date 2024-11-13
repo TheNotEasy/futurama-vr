@@ -3,6 +3,7 @@ import {robotoRegular} from "@/app/fonts"
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import { Suspense } from "react";
 
 
 export const metadata: Metadata = {
@@ -20,12 +21,15 @@ export default function RootLayout({
     <body
       className={`${robotoRegular.className} antialiased`}
     >
-      <div className="flex flex-col gap-[30px] relative">
-        <Header></Header>
-        {children}
-        <Footer></Footer>
-      </div>
+      <Suspense>
+        <div className="flex flex-col gap-[30px] relative">
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </div>
+      </Suspense>
+
     </body>
     </html>
-);
+  );
 }

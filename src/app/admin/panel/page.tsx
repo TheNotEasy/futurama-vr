@@ -12,7 +12,7 @@ import { useSearchParams } from 'next/navigation'
 
 type Props = {
   request: IRequest;
-  rerender: Dispatch<any>;
+  rerender: Dispatch<boolean>;
   value: boolean;
 }
 
@@ -36,7 +36,7 @@ function Request({request, rerender, value}: Props) {
   </>
 }
 
-export default function () {
+export default function Panel() {
   const entries = ['Неотвеченные', 'Архив']
   const [entry, setEntry] = useState(0)
   const [loading, setLoading] = useState<boolean>(true);
@@ -50,7 +50,7 @@ export default function () {
       listActiveRequests().then((requests) => {active.current = requests}),
       listArchiveRequests().then((archives) => {archive.current = archives}),
     ]
-    Promise.all(promises).then((res) => {setLoading(false)})
+    Promise.all(promises).then(() => {setLoading(false)})
   }, []);
 
   if (loading) {
@@ -65,6 +65,7 @@ export default function () {
         <Picker entries={entries} state={entry} setState={setEntry} />
       </div>
     </Block>
-    {entry == 0 ? active.current.map((r) => <Request request={r} rerender={rerender} value={_}></Request>) : archive.current.map((r) => <Request request={r}></Request>)}
+    {entry == 0 ? active.current.map((r) => <Request request={r} rerender={rerender} value={_} key={r.id}></Request>) :
+      archive.current.map((r) => <Request key={r.id} rerender={rerender} value={_} request={r}></Request>)}
   </>
 }

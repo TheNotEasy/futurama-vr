@@ -15,7 +15,6 @@ export async function updateRequest(data: any, id: string) {
 
 export async function getRequest(id: string): Promise<IRequest> {
   const instance = await Request.findOne({where: {id: id}});
-  const all = await Request.findAll();
   return instance?.toJSON() as IRequest;
 }
 
@@ -37,8 +36,8 @@ export async function listArchiveRequests() {
 }
 
 export async function responde(id: string, status: string) {
-  const instance = await Request.findOne({where: {id: id}});
-  // @ts-ignore
+  const instance = await Request.findOne({where: {id: id}}) as IRequest | null;
+  if (instance === null) return;
   instance.state = status;
-  instance?.save();
+  await instance.save();
 }

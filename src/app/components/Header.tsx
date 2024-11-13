@@ -1,5 +1,3 @@
-import {pixelifySans} from "@/app/fonts";
-
 import logo from "@/app/static/logo.png"
 
 import Image from "next/image";
