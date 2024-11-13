@@ -1,6 +1,6 @@
 import { DataTypes, Model, Sequelize } from 'sequelize';
 
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -19,7 +19,8 @@ export interface IRequest extends Model {
   payment: 'online' | 'cash',
 
   id: string
-  state: 'declined' | 'approved' | 'waiting'
+  state: string
+  type: number
 }
 
 export const Request = sequelize.define('Request', {
@@ -40,7 +41,7 @@ export const Request = sequelize.define('Request', {
     unique: true,
   },
   state: {
-    type: DataTypes.ENUM('declined', 'approved', 'waiting'),
+    type: DataTypes.STRING,
     defaultValue: 'waiting',
   },
   type: {
@@ -49,9 +50,14 @@ export const Request = sequelize.define('Request', {
   },
 })
 
+export const Admin = sequelize.define('Admin', {
+  username: DataTypes.STRING,
+  password: DataTypes.STRING,  // Eh...
+})
 
 Request.beforeCreate(request => {
   (request as IRequest).id = uuid();
 })
 
 void sequelize.sync();
+

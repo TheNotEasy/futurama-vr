@@ -11,8 +11,23 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'primary': "var(--primary)",
+        'links': "var(--links)",
+        'shade': "var(--shade)",
+        'dark': "var(--dark)",
+        'semiprimary': "rgba(var(--primary), 0.5)",
       },
+      dropShadow: {
+        glow: [
+          "0 0 2px var(--primary)",
+          "0 0 2px var(--primary)"
+        ]
+      }
     },
+    container: {
+      padding: '2rem',
+      center: true,
+    }
   },
   plugins: [],
 };

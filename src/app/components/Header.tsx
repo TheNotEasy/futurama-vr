@@ -11,6 +11,7 @@ export default function Header() {
       <Link href="/"><Image src={logo} alt={"futurama"}></Image></Link>
       <ul className="flex items-center gap-[30px] sm:gap-[70px] text-links">
         <li><Link href="/">Домой</Link></li>
+        <li><Link href="/library">Библиотека</Link></li>
         <li><Link href="/find">Найти заявку</Link></li>
       </ul>
     </div>

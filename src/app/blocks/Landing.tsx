@@ -13,7 +13,7 @@ export default function Landing() {
         <h1 className={`${Righteous.className} text-[30px] md:text-[48px]`}>VR CLUB - FUTURAMA</h1>
         <p className="text-shade md:text-[28px] text-[20px]">Футурама - VR клуб: Погружайтесь в виртуальные миры, играйте в самые крутые игры,
           наслаждайтесь комфортом. Вас ждет невероятное приключение!</p>
-        <Button href="/send" className="w-max mx-auto md:mx-0">Оставить заявку</Button>
+        <Button href="/send" className="w-max mx-auto md:mx-0 text-[17px]">Оставить заявку</Button>
       </div>
       <Image src={biglogo} alt={"Bender"} className="md:block hidden h-[655px]"></Image>
     </div>

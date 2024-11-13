@@ -2,6 +2,7 @@ import Block from "@/app/components/Block";
 
 import telegram from "@/app/static/telegram.svg"
 import whatsapp from "@/app/static/whatsapp.svg"
+import geo from "@/app/static/place.svg"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,8 +19,8 @@ export default function Footer() {
       <div className="flex gap-[30px]">
         <Link href={links["TG"]}><Image src={telegram} alt={"telegram"} /></Link>
         <Link href={links["WA"]}><Image src={whatsapp} alt={"whatsapp"} /></Link>
-        <Link href={links["2GIS"]}><Image src={links["2GIS"]} alt={"2gis"} /></Link>
       </div>
+      <Link href={links["2GIS"]}><Image src={geo} alt={"2gis"} /></Link>
     </div>
   </Block>
 }
