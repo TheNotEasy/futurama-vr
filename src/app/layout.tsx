@@ -22,9 +22,9 @@ export default function RootLayout({
       className={`${robotoRegular.className} antialiased`}
     >
       <Suspense>
-        <div className="flex flex-col gap-[30px] relative">
+        <div className="flex flex-col gap-[30px] relative min-h-screen">
           <Header></Header>
-          {children}
+          <div className="flex-1">{children}</div>
           <Footer></Footer>
         </div>
       </Suspense>

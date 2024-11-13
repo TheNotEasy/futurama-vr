@@ -15,7 +15,7 @@ const links = {
 
 export default function Footer() {
   return <Block>
-    <div className="flex justify-between">
+    <div className="flex justify-between pb-10 mt-20">
       <div className="flex gap-[30px]">
         <Link href={links["TG"]}><Image src={telegram} alt={"telegram"} /></Link>
         <Link href={links["WA"]}><Image src={whatsapp} alt={"whatsapp"} /></Link>
