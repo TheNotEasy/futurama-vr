@@ -2,10 +2,7 @@ import { DataTypes, Model, Sequelize } from 'sequelize';
 
 import { v4 as uuid } from 'uuid';
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'database.sqlite'
-});
+const sequelize = new Sequelize(process.env.PSQL_URL as string);
 
 export interface IRequest extends Model {
   first_name: string,
