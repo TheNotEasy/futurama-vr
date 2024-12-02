@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.43",
     "fs": "^0.0.1-security",
     "next": "14.2.12",
     "react": "^18",
