@@ -93,8 +93,6 @@ export default function Form({title, price, isUpdate, id, type, fromAdmin, value
       <textarea name="hints" cols={30} rows={10} className="input" placeholder="Опции и комментарии" defaultValue={values['hints']}></textarea>
       <p>*Отправляя эту форму, вы соглашаетесь на обработку персональных данных.</p>
 
-      <DatePicker></DatePicker>
-
       {!fromAdmin && <input type="submit" value={isUpdate ? "Обновить" : "Отправить"}
                             className="input w-full bg-primary cursor-pointer"/>}
 
