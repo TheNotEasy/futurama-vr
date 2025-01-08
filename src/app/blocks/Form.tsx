@@ -7,6 +7,7 @@ import { createRequest, updateRequest } from "@/app/crud";
 import { robotoRegular } from "@/app/fonts";
 
 import { useRouter } from "next/navigation";
+import DatePicker from "../components/DatePicker";
 
 type FormUpdateProps = {
   isUpdate?: boolean
@@ -90,6 +91,9 @@ export default function Form({title, price, isUpdate, id, type, fromAdmin, value
         <option value="cash">Наличные</option>
       </select>
       <textarea name="hints" cols={30} rows={10} className="input" placeholder="Опции и комментарии" defaultValue={values['hints']}></textarea>
+      <p>*Отправляя эту форму, вы соглашаетесь на обработку персональных данных.</p>
+
+      <DatePicker></DatePicker>
 
       {!fromAdmin && <input type="submit" value={isUpdate ? "Обновить" : "Отправить"}
                             className="input w-full bg-primary cursor-pointer"/>}
