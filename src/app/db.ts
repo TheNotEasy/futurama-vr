@@ -4,7 +4,7 @@ import pg from 'pg';
 
 import { v4 as uuid } from 'uuid';
 
-const sequelize = new Sequelize(process.env.PSQL_URL as string, {
+export const sequelize = new Sequelize(process.env.DATABASE_URL as string, {
   dialect: 'postgres',
   dialectModule: pg
 });
